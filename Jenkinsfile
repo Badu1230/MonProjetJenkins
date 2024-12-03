@@ -3,7 +3,7 @@ pipeline {
     environment {
         // Set the JAVA_HOME to Java 17 directory
         JAVA_HOME = "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot" // Adjust to your actual Java path
-        PYTHON_HOME = "C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps" // Replace with your actual Python installation path
+        PYTHON_HOME = "C:\\Users\\Badu\\Documents\\python-3.13" // Replace with your actual Python installation path
         PATH = "${JAVA_HOME}\\bin;${PYTHON_HOME};${env.PATH}"
     }
     stages {
