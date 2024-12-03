@@ -42,7 +42,7 @@ pipeline {
                 script {
                     echo "Exécution du script Python..."
                     bat 'python --version' // Vérifie la version de Python
-                    bat 'python hello.py' // Exécute le script Python
+                    bat 'python hello_world.py' // Exécute le script Python
                 }
             }
         }
