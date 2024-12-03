@@ -1,7 +1,6 @@
 pipeline {
     agent any
     environment {
-        // Chemin vers Java 17
         JAVA_HOME = "C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot" 
         PYTHON_HOME = "C:\\Users\\Badu\\Documents\\python-3.13" 
         PATH = "${JAVA_HOME}\\bin;${PYTHON_HOME};${env.PATH}"
@@ -38,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo "Exécution du script Python"
-                    bat 'python hello.py' // Exécution du script Python
+                    bat 'python hello_world.py' // Exécution du script Python
                 }
             }
         }
@@ -46,13 +45,13 @@ pipeline {
 
     post {
         always {
-            echo "Exécution du pipeline terminée."
+            echo "Execution du pipeline terminee."
         }
         success {
-            echo "Compilation et exécution terminées avec succès !"
+            echo "Compilation et execution terminees avec succes !"
         }
         failure {
-            echo "Une erreur est survenue pendant la compilation ou l'exéc
-
+            echo "Une erreur est survenue pendant la compilation ou l execution."
+        }
     }
 }
