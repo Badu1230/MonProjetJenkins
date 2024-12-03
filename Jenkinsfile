@@ -37,7 +37,7 @@ pipeline {
             steps {
                 script {
                     echo "Running Python script"
-                    bat 'python hello.py'  // Run Python script
+                    bat 'python hello_world.py'  // Run Python script
                 }
             }
         }
