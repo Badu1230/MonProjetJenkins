@@ -1,41 +1,32 @@
 pipeline {
     agent any
-    environment {
-        // Définir des chemins communs pour les environnements
-        JAVA_HOME_WINDOWS = "C:\\Program Files\\Java\\jdk-17"
-        PYTHON_HOME_WINDOWS = "C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps"
-        JAVA_HOME_UNIX = "/usr/lib/jvm/java-8-openjdk-amd64"
-        PYTHON_HOME_UNIX = "/usr/bin"
-    }
     stages {
         stage('Checkout') {
             steps {
-                echo "Cloning the repository..."
                 git branch: 'main', url: 'https://github.com/Badu1230/MonProjetJenkins.git'
             }
         }
-
         stage('Build and Execute') {
             steps {
                 script {
                     if (isUnix()) {
-                        // Configuration pour Unix/Linux
+                        // Configuração Unix
                         withEnv([
-                            "JAVA_HOME=${JAVA_HOME_UNIX}",
-                            "PYTHON_HOME=${PYTHON_HOME_UNIX}",
-                            "PATH=${env.PATH}:${JAVA_HOME_UNIX}/bin:${PYTHON_HOME_UNIX}"
+                            "JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64",  // Ajuste conforme necessário
+                            "PYTHON_HOME=/usr/bin",
+                            "PATH=${env.PATH}:${JAVA_HOME}/bin:${PYTHON_HOME}"
                         ]) {
-                            sh 'echo "Running on Unix..."'
+                            sh 'echo "Running on Unix"'
                             sh 'javac HelloWorld.java'
                             sh 'java HelloWorld'
                             sh 'python3 hello.py'
                         }
                     } else {
-                        // Configuration pour Windows
+                        // Configuração Windows com Java 17 da Eclipse Adoptium
                         withEnv([
-                            "JAVA_HOME=${JAVA_HOME_WINDOWS}",
-                            "PYTHON_HOME=${PYTHON_HOME_WINDOWS}",
-                            "PATH=${env.PATH};${JAVA_HOME_WINDOWS}\\bin;${PYTHON_HOME_WINDOWS}"
+                            "JAVA_HOME=C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot",
+                            "PYTHON_HOME=C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps",
+                            "PATH=${env.PATH};${JAVA_HOME}\\bin;${PYTHON_HOME}"
                         ]) {
                             bat 'echo "Running on Windows..."'
                             bat 'javac HelloWorld.java'
