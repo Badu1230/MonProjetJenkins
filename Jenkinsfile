@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         // Définir des chemins communs pour les environnements
-        JAVA_HOME_WINDOWS = "C:\\Program Files\\Java\\jre1.8.0_421"
+        JAVA_HOME_WINDOWS = "C:\\Program Files\\Java\\jdk-17"
         PYTHON_HOME_WINDOWS = "C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps"
         JAVA_HOME_UNIX = "/usr/lib/jvm/java-8-openjdk-amd64"
         PYTHON_HOME_UNIX = "/usr/bin"
