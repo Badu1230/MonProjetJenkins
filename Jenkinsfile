@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Run Python Script') {
             steps {
-                sh 'python hello_world.py'
+                sh 'python hello.py'
             }
         }
         stage('Run Java Script') {
@@ -12,5 +12,5 @@ pipeline {
             }
         }
     }
-    }
 }
+
