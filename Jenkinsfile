@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        JAVA_HOME = 'C:\Program Files\Java\jdk-17'
+        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-17'
         PYTHON_HOME = 'C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps'
         PATH = "${env.PATH};${JAVA_HOME}\\bin;${PYTHON_HOME}"
     }
