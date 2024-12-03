@@ -1,19 +1,30 @@
 pipeline {
     agent any
-    environment {
+environment {
         JAVA_HOME = 'C:\\Program Files\\Java\\jre1.8.0_421'
         PYTHON_HOME = 'C:\\Users\\Badu\\AppData\\Local\\Microsoft\\WindowsApps'
         PATH = "${env.PATH};${JAVA_HOME}\\bin;${PYTHON_HOME}"
-    }    
-    stages {
-        stage('Run Python Script') {
+stages {
+        stage('Checkout') {
             steps {
-                sh 'python hello.py'
+                git branch: 'main', url: 'https://github.com/Badu1230/MonProjetJenkins.git'
             }
         }
-        stage('Run Java Script') {
+        stage('Build') {
             steps {
-                sh 'javac HelloWorld.java && java HelloWorld'
+                script {
+                    if (isUnix()) {
+                        sh 'echo "Running on Unix"'
+                        sh 'javac HelloWorld.java'
+                        sh 'java HelloWorld'
+                        sh 'python3 hello.py'
+                    } else {
+                        bat 'echo "Running on Windows"'
+                        bat 'javac HelloWorld.java'
+                        bat 'java HelloWorld'
+                        bat 'python hello.py'
+                    }
+                }
             }
         }
     }
