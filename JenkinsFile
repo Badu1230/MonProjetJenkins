@@ -12,7 +12,5 @@ pipeline {
             }
         }
     }
-    triggers {
-        pollSCM("* * * * *")  // Ceci permet de déclencher le pipeline à chaque changement dans le dépôt
     }
 }
