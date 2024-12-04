@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         // Ensure the correct JDK and Python versions are specified
-        jdk 'JDK 17'
+        jdk 'jdk17'
         python 'Python 3.13'
     }
     stages {
