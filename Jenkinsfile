@@ -1,7 +1,6 @@
 pipeline {
     agent any
     tools {
-        // Ensure the correct JDK and Python versions are specified
         jdk 'jdk17'
         python 'Python 3.13'
     }
@@ -27,9 +26,9 @@ pipeline {
                         }
                     } else {
                         withEnv([
-                            "JAVA_HOME=C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.13.11-hotspot",
-                            "PYTHON_HOME=C:\\Users\Badu\\Documents\\python-3.13\\python313",
-                            "PATH=${env.PATH};${JAVA_HOME}\\bin;${PYTHON_HOME}\\bin"
+                            "JAVA_HOME=C:\\\\Program Files\\\\Eclipse Adoptium\\\\jdk-17.0.13.11-hotspot",
+                            "PYTHON_HOME=C:\\\\Users\\\\Badu\\\\Documents\\\\python-3.13\\\\python313",
+                            "PATH=${env.PATH};${JAVA_HOME}\\\\bin;${PYTHON_HOME}\\\\bin"
                         ]) {
                             bat 'echo "Running on Windows"'
                             bat 'javac HelloWorld.java'
